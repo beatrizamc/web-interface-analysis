@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Novelune — discover manga, manhwa and webcomics in one elegant library.">
+  <meta name="theme-color" content="#f5f1eb">
+  <title>Novelune — Read Beyond the Panel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top glass-nav">
+    <div class="container-xl">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#" aria-label="Novelune home">
+        <span class="brand-mark"><i class="bi bi-stars"></i></span><span>novelune</span>
+      </a>
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list fs-2"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <div class="search-wrap mx-lg-auto my-3 my-lg-0">
+          <i class="bi bi-search"></i>
+          <input id="searchInput" type="search" class="form-control" placeholder="Search titles, genres..." autocomplete="off" aria-label="Search titles">
+          <span class="search-shortcut d-none d-md-inline">/</span>
+        </div>
+        <div class="d-flex align-items-center gap-2 nav-actions">
+          <button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle theme"><i class="bi bi-moon-stars"></i></button>
+          <button class="icon-btn" id="myLibraryBtn" title="My library" aria-label="My library"><i class="bi bi-bookmark-heart"></i></button>
+          <button class="btn btn-primary rounded-pill px-4" id="signInBtn"><i class="bi bi-person me-1"></i> Sign in</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container-xl page-space">
+    <section class="hero-panel">
+      <div class="hero-content">
+        <span class="eyebrow"><i class="bi bi-compass"></i> YOUR NEXT OBSESSION</span>
+        <h1>Stories worth<br><span>staying up for.</span></h1>
+        <p>Find your next favorite manga, manhwa and webcomic. A little escape, one chapter at a time.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary rounded-pill px-4" id="exploreBtn">Explore library <i class="bi bi-arrow-right ms-1"></i></button>
+          <button class="btn btn-soft rounded-pill px-4" id="heroLibraryBtn"><i class="bi bi-bookmark-heart me-1"></i> My library</button>
+        </div>
+        <div class="hero-note"><span class="note-dot"></span> Your next favorite story is waiting.</div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="hero-cover hero-cover-one"><span>MOON<br>GARDEN</span><small>A STORY IN BLOOM</small></div>
+        <div class="hero-cover hero-cover-two"><span>AFTER<br>THE RAIN</span><small>CHAPTERS OF US</small></div>
+        <div class="hero-cover hero-cover-three"><span>STAR<br>FALL</span><small>FIND YOUR MAGIC</small></div>
+        <div class="orb orb-one"></div><div class="orb orb-two"></div>
+      </div>
+    </section>
+
+    <section class="section-block" id="library">
+      <div class="section-heading">
+        <div><span class="eyebrow">YOUR PERSONAL DISCOVERY SPACE</span><h2>Explore the library</h2><p class="section-subtitle">Handpicked stories for every mood.</p></div>
+        <span class="results-count" id="resultsCount">6 stories</span>
+      </div>
+
+      <div class="filter-panel">
+        <div class="filter-topline"><span><i class="bi bi-sliders2 me-2"></i>Find your next read</span><button id="clearFilters" class="clear-filters" type="button">Clear filters</button></div>
+        <div class="filter-controls">
+          <label class="filter-field"><span>Format</span><select id="typeFilter" class="form-select"><option value="all">All formats</option><option value="manga">Manga</option><option value="manhwa">Manhwa</option><option value="webcomic">Webcomic</option></select></label>
+          <label class="filter-field"><span>Genre</span><select id="genreFilter" class="form-select"><option value="all">All genres</option><option value="fantasy">Fantasy</option><option value="romance">Romance</option><option value="action">Action</option><option value="drama">Drama</option><option value="slice-of-life">Slice of life</option><option value="mystery">Mystery</option></select></label>
+          <label class="filter-field"><span>Chapters</span><select id="chapterFilter" class="form-select"><option value="all">Any length</option><option value="short">1–25 chapters</option><option value="medium">26–50 chapters</option><option value="long">51+ chapters</option></select></label>
+          <label class="filter-field"><span>Minimum rating</span><select id="ratingFilter" class="form-select"><option value="0">Any rating</option><option value="4">4.0+</option><option value="4.5">4.5+</option><option value="4.8">4.8+</option></select></label>
+          <label class="filter-field"><span>Publication</span><select id="statusFilter" class="form-select"><option value="all">Any status</option><option value="ongoing">Ongoing</option><option value="completed">Completed</option></select></label>
+        </div>
+        <div class="filter-row" aria-label="Quick format filters">
+          <button class="filter-btn active" data-filter="all" type="button">All stories</button>
+          <button class="filter-btn" data-filter="manga" type="button">Manga</button>
+          <button class="filter-btn" data-filter="manhwa" type="button">Manhwa</button>
+          <button class="filter-btn" data-filter="webcomic" type="button">Webcomic</button>
+        </div>
+      </div>
+
+      <div class="row g-4" id="comicGrid">
+        <article class="col-6 col-md-4 col-lg-3 col-xl-2 comic-column" data-type="manhwa" data-title="The Silent Crown" data-genres="fantasy,drama,romance" data-chapters="56" data-rating="4.9" data-status="ongoing">
+          <div class="comic-card">
+            <div class="cover"><img loading="lazy" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=85" alt="Misty fantasy forest cover artwork"><span class="rank">01</span><span class="cover-label">MANHWA</span><button class="bookmark" aria-label="Add The Silent Crown to favorites" aria-pressed="false"><i class="bi bi-bookmark"></i></button></div>
+            <div class="comic-meta"><small>Chapter 56 · Updated today</small><h3>The Silent Crown</h3><div class="meta-bottom"><span class="genre-tag">Fantasy</span><span class="rating"><i class="bi bi-star-fill"></i> 4.9</span></div></div>
+          </div>
+        </article>
+        <article class="col-6 col-md-4 col-lg-3 col-xl-2 comic-column" data-type="manga" data-title="A Piece of Summer" data-genres="romance,slice-of-life,drama" data-chapters="43" data-rating="4.8" data-status="completed">
+          <div class="comic-card"><div class="cover"><img loading="lazy" src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=600&q=85" alt="Warm sunset landscape cover artwork"><span class="rank">02</span><span class="cover-label">MANGA</span><button class="bookmark" aria-label="Add A Piece of Summer to favorites" aria-pressed="false"><i class="bi bi-bookmark"></i></button></div><div class="comic-meta"><small>Chapter 43 · Updated yesterday</small><h3>A Piece of Summer</h3><div class="meta-bottom"><span class="genre-tag">Romance</span><span class="rating"><i class="bi bi-star-fill"></i> 4.8</span></div></div></div>
+        </article>
+        <article class="col-6 col-md-4 col-lg-3 col-xl-2 comic-column" data-type="webcomic" data-title="The Youngest Mage" data-genres="fantasy,action" data-chapters="51" data-rating="4.7" data-status="ongoing">
+          <div class="comic-card"><div class="cover"><img loading="lazy" src="https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?auto=format&fit=crop&w=600&q=85" alt="Enchanted forest cover artwork"><span class="rank">03</span><span class="cover-label">WEBCOMIC</span><button class="bookmark" aria-label="Add The Youngest Mage to favorites" aria-pressed="false"><i class="bi bi-bookmark"></i></button></div><div class="comic-meta"><small>Chapter 51 · Updated today</small><h3>The Youngest Mage</h3><div class="meta-bottom"><span class="genre-tag">Fantasy</span><span class="rating"><i class="bi bi-star-fill"></i> 4.7</span></div></div></div>
+        </article>
+        <article class="col-6 col-md-4 col-lg-3 col-xl-2 comic-column" data-type="manhwa" data-title="Path to Peace" data-genres="action,drama" data-chapters="48" data-rating="4.8" data-status="completed">
+          <div class="comic-card"><div class="cover"><img loading="lazy" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=85" alt="Quiet mountain landscape cover artwork"><span class="rank">04</span><span class="cover-label">MANHWA</span><button class="bookmark" aria-label="Add Path to Peace to favorites" aria-pressed="false"><i class="bi bi-bookmark"></i></button></div><div class="comic-meta"><small>Chapter 48 · Updated 2 days ago</small><h3>Path to Peace</h3><div class="meta-bottom"><span class="genre-tag">Action</span><span class="rating"><i class="bi bi-star-fill"></i> 4.8</span></div></div></div>
+        </article>
+        <article class="col-6 col-md-4 col-lg-3 col-xl-2 comic-column" data-type="manga" data-title="The Blind Saint" data-genres="drama,mystery,fantasy" data-chapters="20" data-rating="4.6" data-status="ongoing">
+          <div class="comic-card"><div class="cover"><img loading="lazy" src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=600&q=85" alt="Blue ocean and sky cover artwork"><span class="rank">05</span><span class="cover-label">MANGA</span><button class="bookmark" aria-label="Add The Blind Saint to favorites" aria-pressed="false"><i class="bi bi-bookmark"></i></button></div><div class="comic-meta"><small>Chapter 20 · Updated 3 days ago</small><h3>The Blind Saint</h3><div class="meta-bottom"><span class="genre-tag">Mystery</span><span class="rating"><i class="bi bi-star-fill"></i> 4.6</span></div></div></div>
+        </article>
+        <article class="col-6 col-md-4 col-lg-3 col-xl-2 comic-column" data-type="webcomic" data-title="Moonlit Letters" data-genres="romance,drama,slice-of-life" data-chapters="31" data-rating="4.7" data-status="ongoing">
+          <div class="comic-card"><div class="cover"><img loading="lazy" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=85" alt="Starry night sky cover artwork"><span class="rank">06</span><span class="cover-label">WEBCOMIC</span><button class="bookmark" aria-label="Add Moonlit Letters to favorites" aria-pressed="false"><i class="bi bi-bookmark"></i></button></div><div class="comic-meta"><small>Chapter 31 · Updated 4 days ago</small><h3>Moonlit Letters</h3><div class="meta-bottom"><span class="genre-tag">Romance</span><span class="rating"><i class="bi bi-star-fill"></i> 4.7</span></div></div></div>
+        </article>
+      </div>
+      <div id="emptyState" class="empty-state d-none"><i class="bi bi-search"></i><h3>No stories found</h3><p>Try changing your search or filters.</p><button class="btn btn-primary rounded-pill px-4" id="emptyReset">Reset filters</button></div>
+    </section>
+
+    <section class="section-block" id="myReading">
+      <div class="section-heading"><div><span class="eyebrow">PICK UP WHERE YOU LEFT OFF</span><h2>Your reading shelf</h2><p class="section-subtitle">A little reminder of the worlds you visited.</p></div></div>
+      <div class="follow-panel">
+        <div class="follow-item"><div class="mini-cover mini-1" role="img" aria-label="Fantasy cover artwork"></div><div class="flex-grow-1"><div class="d-flex justify-content-between gap-2"><div><span class="type">MANHWA · FANTASY</span><h3>Letters From Tomorrow</h3></div><span class="progress-label">72%</span></div><div class="progress mt-3" role="progressbar" aria-label="Reading progress 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:72%"></div></div><small>Chapter 38 of 53 · updated yesterday</small></div><button class="continue-btn" type="button" data-title="Letters From Tomorrow">Continue <i class="bi bi-arrow-right"></i></button></div>
+        <div class="follow-item"><div class="mini-cover mini-2" role="img" aria-label="Nature cover artwork"></div><div class="flex-grow-1"><div class="d-flex justify-content-between gap-2"><div><span class="type">MANGA · SLICE OF LIFE</span><h3>Garden of Starlight</h3></div><span class="progress-label">41%</span></div><div class="progress mt-3" role="progressbar" aria-label="Reading progress 41%" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width:41%"></div></div><small>Chapter 16 of 39 · updated 2 days ago</small></div><button class="continue-btn" type="button" data-title="Garden of Starlight">Continue <i class="bi bi-arrow-right"></i></button></div>
+      </div>
+    </section>
+
+    <section class="community-panel section-block" id="community">
+      <div><span class="eyebrow">LET'S BE FRIENDS</span><h2>Stories are better together.</h2><p>Follow Novelune for reading recommendations, new discoveries and community updates.</p></div>
+      <div class="social-links" aria-label="Novelune social media">
+        <a class="social-link social-x" href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)"><i class="bi bi-twitter-x"></i><span>X / Twitter</span><i class="bi bi-arrow-up-right ms-auto"></i></a>
+        <a class="social-link social-instagram" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i><span>Instagram</span><i class="bi bi-arrow-up-right ms-auto"></i></a>
+        <a class="social-link social-facebook" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i><span>Facebook</span><i class="bi bi-arrow-up-right ms-auto"></i></a>
+      </div>
+      <small class="social-note">Replace these links with the official Novelune profile URLs when available.</small>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container-xl footer-inner">
+      <a class="footer-brand" href="#"><span class="brand-mark"><i class="bi bi-stars"></i></span><span>novelune</span></a>
+      <span>© 2026 Novelune. Read beyond the panel.</span>
+      <div class="footer-links"><a href="#library">Discover</a><a href="#myReading">My shelf</a><a href="#community">Community</a><a href="mailto:hello@novelune.example">Support</a></div>
+    </div>
+  </footer>
+
+  <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content auth-modal">
+        <div class="modal-header border-0 pb-0"><button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button></div>
+        <div class="modal-body px-4 px-md-5 pt-0 pb-5">
+          <div class="auth-brand"><span class="brand-mark"><i class="bi bi-stars"></i></span></div>
+          <p class="eyebrow text-center mt-3 mb-2">WELCOME TO YOUR NEXT CHAPTER</p>
+          <h2 class="auth-title text-center" id="authTitle">Welcome back</h2>
+          <p class="auth-subtitle text-center" id="authSubtitle">Sign in to keep your stories close.</p>
+          <div class="auth-tabs"><button type="button" class="auth-tab active" data-mode="signin">Sign in</button><button type="button" class="auth-tab" data-mode="signup">Create account</button></div>
+          <form id="authForm" novalidate>
+            <div class="mb-3" id="nameField" hidden><label class="form-label" for="authName">Display name</label><input class="form-control auth-input" id="authName" name="name" type="text" placeholder="How should we call you?"></div>
+            <div class="mb-3"><label class="form-label" for="authEmail">Email address</label><input class="form-control auth-input" id="authEmail" name="email" type="email" placeholder="you@example.com" autocomplete="email" required></div>
+            <div class="mb-2"><label class="form-label" for="authPassword">Password</label><div class="password-wrap"><input class="form-control auth-input" id="authPassword" name="password" type="password" placeholder="At least 6 characters" autocomplete="current-password" minlength="6" required><button type="button" id="togglePassword" aria-label="Show password"><i class="bi bi-eye"></i></button></div></div>
+            <div class="auth-options"><label class="form-check"><input class="form-check-input" type="checkbox" id="rememberMe"><span class="form-check-label">Remember me</span></label><button type="button" class="text-button" id="forgotPassword">Forgot password?</button></div>
+            <div class="alert d-none mt-3" id="authMessage" role="status"></div>
+            <button class="btn btn-primary rounded-pill w-100 auth-submit mt-3" type="submit" id="authSubmit">Sign in <i class="bi bi-arrow-right ms-1"></i></button>
+            <p class="auth-disclaimer">Demo only: this form does not create a secure account or send your information to a server.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3"><div id="siteToast" class="toast" role="status" aria-live="polite" aria-atomic="true"><div class="toast-body d-flex align-items-center gap-2"><i class="bi bi-info-circle"></i><span id="toastMessage">Hello!</span><button type="button" class="btn-close ms-auto" data-bs-dismiss="toast" aria-label="Close"></button></div></div></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
