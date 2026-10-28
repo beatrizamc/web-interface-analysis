@@ -69,14 +69,17 @@
           <label class="filter-field"><span>Minimum rating</span><select id="ratingFilter" class="form-select"><option value="0">Any rating</option><option value="4">4.0+</option><option value="4.5">4.5+</option><option value="4.8">4.8+</option></select></label>
           <label class="filter-field"><span>Publication</span><select id="statusFilter" class="form-select"><option value="all">Any status</option><option value="ongoing">Ongoing</option><option value="completed">Completed</option></select></label>
         </div>
-        <div class="filter-row" aria-label="Quick format filters">
-          <button class="filter-btn active" data-filter="all" type="button">All stories</button>
-          <button class="filter-btn" data-filter="manga" type="button">Manga</button>
-          <button class="filter-btn" data-filter="manhwa" type="button">Manhwa</button>
-          <button class="filter-btn" data-filter="webcomic" type="button">Webcomic</button>
-        </div>
-      </div>
+        <article
+        class="comic-column"
+        data-type="manhwa"
+        data-title="The Silent Crown"
+        data-genres="fantasy,drama,romance"
+        data-chapters="56"
+        data-rating="4.9"
+        data-status="ongoing">
+       </article>
 
+<br>
       <div class="row g-4" id="comicGrid">
         <article class="col-6 col-md-4 col-lg-3 col-xl-2 comic-column" data-type="manhwa" data-title="The Silent Crown" data-genres="fantasy,drama,romance" data-chapters="56" data-rating="4.9" data-status="ongoing">
           <div class="comic-card">
